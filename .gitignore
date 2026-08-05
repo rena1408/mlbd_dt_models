@@ -13,3 +13,6 @@ log*/
 */#*
 *~
 *pwf
+*.pt
+*npy
+*jpg

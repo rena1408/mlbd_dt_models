@@ -29,7 +29,7 @@ class GNNClassifier(nn.Module):
         
 
     
-        self.output_layer = nn.Linear(input_dim, output_dim) # do input_dim*2 because of double pooling
+        self.output_layer = nn.Linear(input_dim*2, output_dim) # do input_dim*2 because of double pooling
         self.output_activation = nn.Sigmoid() if output_dim == 1 else nn.Softmax(dim=1)
 
     def forward(self, data, edges, batch_indices, skip_output_activation=False):
@@ -41,8 +41,8 @@ class GNNClassifier(nn.Module):
             x = batch_norm(x)
             x = activation(x)
 
-        #x = torch.cat([global_mean_pool(x, batch_indices), global_max_pool(x, batch_indices)], dim=1)
-        x = global_mean_pool(x, batch_indices) 
+        x = torch.cat([global_mean_pool(x, batch_indices), global_max_pool(x, batch_indices)], dim=1)
+        #x = global_mean_pool(x, batch_indices) 
         x = self.output_layer(x)
 
         if not skip_output_activation:

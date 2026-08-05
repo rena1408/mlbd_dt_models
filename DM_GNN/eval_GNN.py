@@ -9,8 +9,8 @@ import torch
 import torchinfo
 from torch_geometric.loader import DataLoader
 
-from utils import classes
-from utils import general_functions
+from utils.classes import GNNClassifier
+from utils.general_functions import load_data
 
 import pandas as pd
 
@@ -26,26 +26,25 @@ if device == 'cuda':
     print('Memory Usage:')
     print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
 
-def model_eval(name, dimensions = [16, 32, 64, 128], bootstrap = True, n_bootstrap = 10):
+def model_eval(name, conv_layer_dims = [16, 32, 64, 128], bootstrap = True, n_bootstrap = 10):
 
     test_sample = load_data("test")
 
     start = time.time()
 
     N_dims = 3
-    input_dim = N_dims  # x, y, q + 1 for different poolings
-    conv_layer_dims = dimensions
+    input_dim = N_dims  # x, y, q
 
-    PATH = f"/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/model_states/{name}"
+    PATH = f"DM_GNN/model_states/{name}"
 
-    out_path = f"/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/outputs/eval/{name}"
+    out_path = f"DM_GNN/outputs/eval/{name}"
     os.makedirs(out_path, exist_ok = True)
 
-    trials_out_path = f"/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/model_states/outputs/eval/{name}/separate"
+    trials_out_path = f"DM_GNN/model_states/outputs/eval/{name}/separate"
     os.makedirs(trials_out_path, exist_ok = True)
 
     model = GNNClassifier(input_dim=input_dim, hidden_dims=conv_layer_dims, output_dim=1).to(device)
-    state_dict = torch.load(PATH)
+    state_dict = torch.load(PATH, map_location=torch.device(device))
     model.load_state_dict(state_dict)
 
     torchinfo.summary(model)
@@ -59,7 +58,7 @@ def model_eval(name, dimensions = [16, 32, 64, 128], bootstrap = True, n_bootstr
 
     for trial in range(n_boot):
     
-        if bootstrap == True:
+        if bootstrap == True and trial > 0:
             rng = np.random.default_rng()
             chosen = rng.choice(len(test_sample), len(test_sample))
 
@@ -133,4 +132,4 @@ def model_eval(name, dimensions = [16, 32, 64, 128], bootstrap = True, n_bootstr
     print(eval_metrics_df.head())
 
 if __name__ == '__main__':
-    model_eval("", n_bootstrap = 100)
+    model_eval("model_gnn_547496", n_bootstrap = 10)

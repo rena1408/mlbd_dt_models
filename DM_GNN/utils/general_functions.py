@@ -1,20 +1,10 @@
-
 import time
-import sys
 import os
 
-import matplotlib.pyplot as plt
-import numpy as np
 from sklearn import metrics as metrics
 from typing import Literal, get_args
 
 import torch
-import torchinfo
-from torch_geometric.loader import DataLoader
-
-from classes import GNNClassifier
-
-import pandas as pd
 
 
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
@@ -38,13 +28,13 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
 
 _TYPES = Literal["test", "train"]
 
-def load_data(type_data: _TYPES, path = "/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/GNN_data"):
+def load_data(type_data: _TYPES, graphs_dir = "DM_GNN/GNN_data"):
 
     '''
     Function to load pickle files into the script.
 
     inputs:
-        path: str, path to the data that should be loaded. Default: /vols/sbn/uboone/ll4420/dark_tridents_wspace/DM-GNN/graphs/
+        graphs_dir: str, path to the data that should be loaded. Default: /vols/sbn/uboone/ll4420/dark_tridents_wspace/DM-GNN/graphs/
         type_data: str, type of data to be loaded, either "test" or "train"
 
     output:
@@ -53,8 +43,6 @@ def load_data(type_data: _TYPES, path = "/vols/sbn/uboone/rn325/my_analysis/mlbd
 
     options = get_args(_TYPES)
     assert type_data in options, f"'{type_data}' is not in {options}"
-
-    graphs_dir  = path
 
     start = time.time()
 

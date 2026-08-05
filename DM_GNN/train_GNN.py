@@ -2,9 +2,11 @@ import time
 import sys
 import os
 
+
 var = os.environ["SINGULARITY_CACHEDIR"]
 
 cluster = ''.join(filter(str.isdigit, var))
+# cluster = "11111"
 
 print(cluster)
 parent_d = "/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/outputs"
@@ -25,8 +27,8 @@ import torch.nn as nn
 
 from torch_geometric.loader import DataLoader
 
-from utils import classes
-from utils import general_functions
+from utils.classes import GNNClassifier, EarlyStopper
+from utils.general_functions import load_data, printProgressBar
 
 # ## Checking available cpus/gpus
 device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
@@ -214,7 +216,7 @@ def train_GNN(data_path = "", train_epochs = 50, frac_train = 0.85,
 
     model.load_state_dict(best_model_state)
 
-    PATH = f"/vols/sbn/uboone/rn325/my_analysis/mlbd_dt_models/DM_GNN/model_states/{cluster}"
+    PATH = f"DM_GNN/model_states/{cluster}"
 
     print(f"Saving the best model at {PATH}...")
     torch.save(model.state_dict(), PATH)

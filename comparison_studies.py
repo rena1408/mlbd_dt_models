@@ -166,7 +166,7 @@ def mcnemar_data(data, type):
     print(f"\n")
     return mcnem
 
-def load_truth_test_data(truth, test, l_signal = 2686, l_bkg = 4121):
+def load_truth_test_data(type, truth, test, l_signal = 2686, l_bkg = 4121):
 
     t_1 = np.load(truth).flatten()
     t_2 = np.load(test).flatten()
@@ -174,6 +174,8 @@ def load_truth_test_data(truth, test, l_signal = 2686, l_bkg = 4121):
     ts = np.transpose([t_1, t_2])
 
     cl1_df = pd.DataFrame(ts, columns = ["truth", "test"])
+
+    ## pop events listed in exclude thingy?
     cl1_bkg = cl1_df.loc[cl1_df['truth'] == 0][:l_bkg]          # NOTE THAT [:l_bkg] IS A TEMPORARY FIX AND WILL PRODUCE INACCURATE RESULTS
     cl1_signal = cl1_df.loc[cl1_df['truth'] == 1][:l_signal]
 
@@ -187,8 +189,8 @@ def load_truth_test_data(truth, test, l_signal = 2686, l_bkg = 4121):
 models = ["CNN", "GNN"]
 
 
-cl1_df = load_truth_test_data("rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/test_scores.npy")
-cl2_df = load_truth_test_data("rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/test_scores.npy")
+cl1_df = load_truth_test_data("GNN", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/test_scores.npy")
+cl2_df = load_truth_test_data("CNN", "rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/test_scores.npy")
 
 print(np.all(cl1_df["truth"].to_numpy() == cl2_df["truth"].to_numpy()))
 
