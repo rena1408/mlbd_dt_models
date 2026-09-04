@@ -1,0 +1,264 @@
+1932054
+Currently active Python virtual environment: /home/hep/rn325/venvs/.venv
+True
+Using device: cuda
+NVIDIA RTX A6000
+Memory Usage:
+Allocated: 0.0 GB
+True
+Using device: cuda
+NVIDIA RTX A6000
+Memory Usage:
+Allocated: 0.0 GB
+Loading train graphs...
+Loaded train_graphs_0.pt, total so far: 4792
+Loaded train_graphs_1.pt, total so far: 9760
+Loaded train_graphs_10.pt, total so far: 14721
+Loaded train_graphs_11.pt, total so far: 19620
+Loaded train_graphs_12.pt, total so far: 22376
+Loaded train_graphs_2.pt, total so far: 27344
+Loaded train_graphs_3.pt, total so far: 32282
+Loaded train_graphs_4.pt, total so far: 37227
+Loaded train_graphs_5.pt, total so far: 42172
+Loaded train_graphs_6.pt, total so far: 47151
+Loaded train_graphs_7.pt, total so far: 52131
+Loaded train_graphs_8.pt, total so far: 57106
+Loaded train_graphs_9.pt, total so far: 62058
+Loaded 62058 graphs in 96.06407499313354 seconds.
+Splitting data into train, test, and validation sets...
+Number of training graphs: 52749
+Number of validation graphs: 9309
+===============================================================================================
+Layer (type:depth-idx)                        Output Shape              Param #
+===============================================================================================
+GNNClassifier                                 [1, 1]                    --
+├─BatchNorm: 1-1                              [10, 3]                   --
+│    └─BatchNorm1d: 2-1                       [10, 3]                   6
+├─ModuleList: 1-2                             --                        --
+│    └─ModuleList: 2-2                        --                        --
+│    │    └─GraphConv: 3-1                    [10, 16]                  112
+│    │    └─BatchNorm: 3-2                    [10, 16]                  32
+│    │    └─ReLU: 3-3                         [10, 16]                  --
+│    └─ModuleList: 2-3                        --                        --
+│    │    └─GraphConv: 3-4                    [10, 32]                  1,056
+│    │    └─BatchNorm: 3-5                    [10, 32]                  64
+│    │    └─ReLU: 3-6                         [10, 32]                  --
+│    └─ModuleList: 2-4                        --                        --
+│    │    └─GraphConv: 3-7                    [10, 64]                  4,160
+│    │    └─BatchNorm: 3-8                    [10, 64]                  128
+│    │    └─ReLU: 3-9                         [10, 64]                  --
+│    └─ModuleList: 2-5                        --                        --
+│    │    └─GraphConv: 3-10                   [10, 128]                 16,512
+│    │    └─BatchNorm: 3-11                   [10, 128]                 256
+│    │    └─ReLU: 3-12                        [10, 128]                 --
+├─Linear: 1-3                                 [1, 1]                    257
+├─Sigmoid: 1-4                                [1, 1]                    --
+===============================================================================================
+Total params: 22,583
+Trainable params: 22,583
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 0.22
+===============================================================================================
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.06
+Params size (MB): 0.09
+Estimated Total Size (MB): 0.15
+===============================================================================================
+Epoch 1/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 1/50 - Train Loss: 0.5247, Train Acc: 0.7433, Val Loss: 0.4542, Val Acc: 0.7940
+Epoch 2/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 2/50 - Train Loss: 0.4341, Train Acc: 0.8043, Val Loss: 0.4095, Val Acc: 0.8175
+Epoch 3/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 3/50 - Train Loss: 0.3969, Train Acc: 0.8256, Val Loss: 0.3724, Val Acc: 0.8423
+Epoch 4/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 4/50 - Train Loss: 0.3694, Train Acc: 0.8437, Val Loss: 0.3467, Val Acc: 0.8581
+Epoch 5/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 5/50 - Train Loss: 0.3479, Train Acc: 0.8542, Val Loss: 0.3336, Val Acc: 0.8662
+Epoch 6/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 6/50 - Train Loss: 0.3338, Train Acc: 0.8618, Val Loss: 0.3144, Val Acc: 0.8742
+Epoch 7/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 7/50 - Train Loss: 0.3225, Train Acc: 0.8663, Val Loss: 0.3038, Val Acc: 0.8784
+Epoch 8/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 8/50 - Train Loss: 0.3129, Train Acc: 0.8723, Val Loss: 0.3001, Val Acc: 0.8792
+Epoch 9/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 9/50 - Train Loss: 0.3054, Train Acc: 0.8743, Val Loss: 0.2906, Val Acc: 0.8818
+Epoch 10/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 10/50 - Train Loss: 0.3013, Train Acc: 0.8764, Val Loss: 0.2846, Val Acc: 0.8851
+Epoch 11/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 11/50 - Train Loss: 0.2942, Train Acc: 0.8799, Val Loss: 0.2804, Val Acc: 0.8882
+Epoch 12/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 12/50 - Train Loss: 0.2895, Train Acc: 0.8822, Val Loss: 0.2714, Val Acc: 0.8919
+Epoch 13/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 13/50 - Train Loss: 0.2852, Train Acc: 0.8840, Val Loss: 0.2734, Val Acc: 0.8897
+Epoch 14/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 14/50 - Train Loss: 0.2813, Train Acc: 0.8867, Val Loss: 0.2751, Val Acc: 0.8910
+Epoch 15/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 15/50 - Train Loss: 0.2795, Train Acc: 0.8858, Val Loss: 0.2670, Val Acc: 0.8954
+Epoch 16/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 16/50 - Train Loss: 0.2746, Train Acc: 0.8898, Val Loss: 0.2634, Val Acc: 0.8946
+Epoch 17/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 17/50 - Train Loss: 0.2722, Train Acc: 0.8908, Val Loss: 0.2634, Val Acc: 0.8934
+Epoch 18/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 18/50 - Train Loss: 0.2686, Train Acc: 0.8916, Val Loss: 0.2582, Val Acc: 0.8989
+Epoch 19/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 19/50 - Train Loss: 0.2655, Train Acc: 0.8933, Val Loss: 0.2591, Val Acc: 0.8995
+Epoch 20/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 20/50 - Train Loss: 0.2655, Train Acc: 0.8926, Val Loss: 0.2543, Val Acc: 0.8993
+Epoch 21/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 21/50 - Train Loss: 0.2635, Train Acc: 0.8942, Val Loss: 0.2663, Val Acc: 0.8944
+Epoch 22/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 22/50 - Train Loss: 0.2617, Train Acc: 0.8937, Val Loss: 0.2538, Val Acc: 0.8999
+Epoch 23/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 23/50 - Train Loss: 0.2611, Train Acc: 0.8950, Val Loss: 0.2505, Val Acc: 0.9018
+Epoch 24/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 24/50 - Train Loss: 0.2584, Train Acc: 0.8970, Val Loss: 0.2495, Val Acc: 0.9015
+Epoch 25/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 25/50 - Train Loss: 0.2575, Train Acc: 0.8967, Val Loss: 0.2506, Val Acc: 0.9001
+Epoch 26/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 26/50 - Train Loss: 0.2542, Train Acc: 0.8992, Val Loss: 0.2514, Val Acc: 0.9001
+Epoch 27/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 27/50 - Train Loss: 0.2541, Train Acc: 0.8976, Val Loss: 0.2444, Val Acc: 0.9040
+Epoch 28/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 28/50 - Train Loss: 0.2531, Train Acc: 0.8979, Val Loss: 0.2512, Val Acc: 0.8979
+Epoch 29/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 29/50 - Train Loss: 0.2502, Train Acc: 0.8999, Val Loss: 0.2455, Val Acc: 0.9035
+Epoch 30/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 30/50 - Train Loss: 0.2506, Train Acc: 0.9003, Val Loss: 0.2459, Val Acc: 0.9020
+Epoch 31/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 31/50 - Train Loss: 0.2491, Train Acc: 0.9007, Val Loss: 0.2436, Val Acc: 0.9035
+Epoch 32/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 32/50 - Train Loss: 0.2486, Train Acc: 0.9010, Val Loss: 0.2475, Val Acc: 0.9037
+Epoch 33/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 33/50 - Train Loss: 0.2481, Train Acc: 0.9005, Val Loss: 0.2497, Val Acc: 0.8990
+Epoch 34/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 34/50 - Train Loss: 0.2457, Train Acc: 0.9029, Val Loss: 0.2465, Val Acc: 0.9036
+Epoch 35/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 35/50 - Train Loss: 0.2448, Train Acc: 0.9020, Val Loss: 0.2540, Val Acc: 0.8975
+Epoch 36/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 36/50 - Train Loss: 0.2435, Train Acc: 0.9025, Val Loss: 0.2387, Val Acc: 0.9053
+Epoch 37/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 37/50 - Train Loss: 0.2433, Train Acc: 0.9027, Val Loss: 0.2451, Val Acc: 0.9022
+Epoch 38/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 38/50 - Train Loss: 0.2418, Train Acc: 0.9036, Val Loss: 0.2406, Val Acc: 0.9037
+Epoch 39/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 39/50 - Train Loss: 0.2414, Train Acc: 0.9039, Val Loss: 0.2363, Val Acc: 0.9050
+Epoch 40/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 40/50 - Train Loss: 0.2404, Train Acc: 0.9050, Val Loss: 0.2437, Val Acc: 0.9030
+Epoch 41/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 41/50 - Train Loss: 0.2372, Train Acc: 0.9064, Val Loss: 0.2372, Val Acc: 0.9053
+Epoch 42/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 42/50 - Train Loss: 0.2378, Train Acc: 0.9046, Val Loss: 0.2553, Val Acc: 0.8981
+Epoch 43/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 43/50 - Train Loss: 0.2356, Train Acc: 0.9067, Val Loss: 0.2604, Val Acc: 0.8953
+Epoch 44/50
+Learning Rate: 1.00e-04
+Progress: |--------------------------------------------------| 0.0% Completetraining progress: |██████████████████████████████████████████████████| 100.0% CompleteEpoch 44/50 - Train Loss: 0.2370, Train Acc: 0.9056, Val Loss: 0.2549, Val Acc: 0.9008
+Stopped training due to early stopping criteria. 
+ Stopped at epoch 44.
+Best model found at epoch 39 with validation loss 0.2363 and validation accuracy 0.9050
+Saving the best model at DM_GNN/model_states/1932054...
+The model trained for 980.3775041103363 seconds over 50 epochs.
+Loading test graphs...
+Loaded test_graphs_0.pt, total so far: 4936
+Loaded test_graphs_1.pt, total so far: 6807
+Loaded 6807 graphs in 9.394086122512817 seconds.
+======================================================================
+Layer (type:depth-idx)                        Param #
+======================================================================
+GNNClassifier                                 --
+├─BatchNorm: 1-1                              --
+│    └─BatchNorm1d: 2-1                       6
+├─ModuleList: 1-2                             --
+│    └─ModuleList: 2-2                        --
+│    │    └─GraphConv: 3-1                    112
+│    │    └─BatchNorm: 3-2                    32
+│    │    └─ReLU: 3-3                         --
+│    └─ModuleList: 2-3                        --
+│    │    └─GraphConv: 3-4                    1,056
+│    │    └─BatchNorm: 3-5                    64
+│    │    └─ReLU: 3-6                         --
+│    └─ModuleList: 2-4                        --
+│    │    └─GraphConv: 3-7                    4,160
+│    │    └─BatchNorm: 3-8                    128
+│    │    └─ReLU: 3-9                         --
+│    └─ModuleList: 2-5                        --
+│    │    └─GraphConv: 3-10                   16,512
+│    │    └─BatchNorm: 3-11                   256
+│    │    └─ReLU: 3-12                        --
+├─Linear: 1-3                                 257
+├─Sigmoid: 1-4                                --
+======================================================================
+Total params: 22,583
+Trainable params: 22,583
+Non-trainable params: 0
+======================================================================
+Ran 1000 trials in 1949.7704060077667 seconds. 
+
+The accuracies are 0      0.899368
+1      0.899956
+2      0.899956
+3      0.899221
+4      0.896136
+         ...   
+995    0.899662
+996    0.903482
+997    0.897605
+998    0.898781
+999    0.900397
+Name: accuracy, Length: 1000, dtype: float64. 
+
+Number of bootstrapping samples: 1000
+The mean accuracy is 0.8992769208168062. 
+
+With a variance of 1.3946425884103918e-05.
+   accuracy    recall  precision  specificity  ...     fp     fn      tn      tp
+0  0.899368  0.898362   0.854159     0.900024  ...  412.0  273.0  3709.0  2413.0
+1  0.899956  0.901867   0.856398     0.898675  ...  413.0  268.0  3663.0  2463.0
+2  0.899956  0.905611   0.850908     0.896259  ...  427.0  254.0  3689.0  2437.0
+3  0.899221  0.898814   0.854475     0.899489  ...  413.0  273.0  3696.0  2425.0
+4  0.896136  0.889392   0.850542     0.900433  ...  414.0  293.0  3744.0  2356.0
+
+[5 rows x 11 columns]
