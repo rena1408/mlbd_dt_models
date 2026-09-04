@@ -1,6 +1,7 @@
 
-# mlbd_dt_models
-Models and their comparison for analysing Dark Trident interactions.
+# Comparative Study of ML Models for DT identification in LArTPC
+
+Different ML Models and their comparison for analysing Dark Trident interactions in LArTPC.
 
 # Authors
 Rebecca Nasterlack
