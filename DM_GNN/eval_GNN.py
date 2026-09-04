@@ -14,6 +14,8 @@ from utils.general_functions import load_data
 
 import pandas as pd
 
+from codecarbon import EmissionsTracker
+
 
 # ## Checking available cpus/gpus
 device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
@@ -28,6 +30,9 @@ if device == 'cuda':
 
 def model_eval(name, conv_layer_dims = [16, 32, 64, 128], bootstrap = True, n_bootstrap = 10):
 
+    tracker = EmissionsTracker()
+    tracker.start()
+
     test_sample = load_data("test")
 
     start = time.time()
@@ -35,7 +40,8 @@ def model_eval(name, conv_layer_dims = [16, 32, 64, 128], bootstrap = True, n_bo
     N_dims = 3
     input_dim = N_dims  # x, y, q
 
-    PATH = f"DM_GNN/model_states/{name}"
+    PATH = f"this_model/GNN/{name}"
+    #1932054
 
     out_path = f"DM_GNN/outputs/eval/{name}"
     os.makedirs(out_path, exist_ok = True)
@@ -131,5 +137,10 @@ def model_eval(name, conv_layer_dims = [16, 32, 64, 128], bootstrap = True, n_bo
 
     print(eval_metrics_df.head())
 
+    emissions = tracker.stop()
+    print(f"Emissions: {emissions} kg CO₂")
+
+    return 0
+
 if __name__ == '__main__':
-    model_eval("model_gnn_547496", n_bootstrap = 10)
+    model_eval("1932054", bootstrap=False)

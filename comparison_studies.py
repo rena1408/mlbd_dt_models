@@ -186,11 +186,11 @@ def load_truth_test_data(type, truth, test, l_signal = 2686, l_bkg = 4121):
 
     return cl1_ordered_df
 
-models = ["CNN", "GNN"]
+models = ["CNN", "GT"]
 
 
-cl1_df = load_truth_test_data("GNN", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/test_scores.npy")
-cl2_df = load_truth_test_data("CNN", "rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/CNN_out/test_scores.npy")
+cl1_df = load_truth_test_data("GT", "rn325/my_analysis/mlbd_dt_models/this_model/GT/separate/truth_0.npy", "rn325/my_analysis/mlbd_dt_models/this_model/GT/separate/test_scores_0.npy")
+cl2_df = load_truth_test_data("GNN", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/truth.npy", "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/test_scores.npy")
 
 print(np.all(cl1_df["truth"].to_numpy() == cl2_df["truth"].to_numpy()))
 

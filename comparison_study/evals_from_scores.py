@@ -57,7 +57,7 @@ def calc_evals(truth_file, test_score_file, out_path):
     eval_metrics_df = pd.DataFrame(eval_metrics_array, columns = ["accuracy", "recall", "precision", "specificity", "youden_j_statistic", "f1_score", "auc_score",
                                      "fp", "fn", "tn", "tp"])
 
-    eval_metrics_df.to_csv(f"{out_path}/GNN_bootstrap_evaluation_metrics.csv")
+    eval_metrics_df.to_csv(f"{out_path}/GT_bootstrap_evaluation_metrics.csv")
 
     end = time.time()
 
@@ -71,5 +71,5 @@ def calc_evals(truth_file, test_score_file, out_path):
 
 
 if __name__ == '__main__':
-    calc_evals(test_score_file= "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/test_scores.npy", truth_file=
-               "rn325/my_analysis/mlbd_dt_models/model_out_data/GNN_out/truth.npy", out_path="rn325/my_analysis/mlbd_dt_models/comparison_study/eval_metrics")
+    calc_evals(test_score_file= "rn325/my_analysis/mlbd_dt_models/this_model/GT/separate/test_scores_0.npy", truth_file=
+               "rn325/my_analysis/mlbd_dt_models/this_model/GT/separate/truth_0.npy", out_path="rn325/my_analysis/mlbd_dt_models/this_model/GT/eval_metrics")

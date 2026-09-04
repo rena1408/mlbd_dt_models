@@ -30,6 +30,9 @@ from torch_geometric.loader import DataLoader
 from utils.classes import GNNClassifier, EarlyStopper
 from utils.general_functions import load_data, printProgressBar
 
+from codecarbon import EmissionsTracker
+
+
 # ## Checking available cpus/gpus
 device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
 print(torch.cuda.is_available())
@@ -123,6 +126,10 @@ def train_function(nepochs, scheduler, gamma, optimizer, model, train_loader,
 def train_GNN(data_path = "", train_epochs = 50, frac_train = 0.85, 
               conv_layer_dims = [16, 32, 64, 128]):
 
+
+    tracker = EmissionsTracker()
+    tracker.start()
+
     if data_path == "":
         all_graphs = load_data("train")
         #test_sample = load_data("test")
@@ -132,6 +139,7 @@ def train_GNN(data_path = "", train_epochs = 50, frac_train = 0.85,
 
     np.random.seed(42)
     np.random.shuffle(all_graphs)
+
 
     start = time.time()
 
@@ -155,8 +163,7 @@ def train_GNN(data_path = "", train_epochs = 50, frac_train = 0.85,
     torchinfo.summary(model, input_data=(dummy_data, dummy_edges, dummy_batch))
 
 
-    batch_size = 32      # implement early stopping criteria
-
+    batch_size = 32
     lr = 1e-4
     gamma = 0.1 # learning rate decay factor, set to 1 to disable decay
 
@@ -224,6 +231,10 @@ def train_GNN(data_path = "", train_epochs = 50, frac_train = 0.85,
     end = time.time()
 
     print(f"The model trained for {end - start} seconds over {train_epochs} epochs.")
+
+
+    emissions = tracker.stop()
+    print(f"Emissions: {emissions} kg CO₂")
 
     return cluster
 
